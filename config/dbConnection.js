@@ -4,7 +4,10 @@ const dbConnection = async () => {
     try {
         await mongoose.connect(process.env.MONGO_URI, {
             ssl: true,
-            tlsAllowInvalidCertificates: false
+            tlsAllowInvalidCertificates: false,
+            useNewUrlParser: true,
+      useUnifiedTopology: true,
+   
         });
         console.log("Db Connection Established");
     }
