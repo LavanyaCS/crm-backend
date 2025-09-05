@@ -11,6 +11,13 @@ const caseRoute = require("./routes/caseRoute");
 const dbConnection = require("./config/dbConnection");
 //Middleware
 app.use(express.json());
+// Allow requests from your Netlify frontend
+app.use(cors({
+  origin: "https://crm-frontend-mern.netlify.app",  // your Netlify domain
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
+
 // app.use(cors());
 app.get('/', (req, res) => {
   res.send('Backend is running ✅');
