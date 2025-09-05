@@ -12,6 +12,21 @@ const dbConnection = require("./config/dbConnection");
 //Middleware
 app.use(express.json());
 app.use(cors());
+app.get('/', (req, res) => {
+  res.send('Backend is running ✅');
+});
+
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok' });
+});
+app.get('/', (req, res) => {
+  res.send('Backend is running ✅');
+});
+
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok' });
+});
+
 app.use("/api/auth",authRoute);
 app.use("/api/customer",customerRoute);
 app.use("/api/case",caseRoute);
